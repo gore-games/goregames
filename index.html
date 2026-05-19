@@ -57,7 +57,87 @@ h1, h2 {
 .flip-back {
   transform: rotateY(180deg);
 }
+
+
+
+
+
+
+.social-container{
+  position:relative;
+  overflow:hidden;
+
+  transition:
+    background .4s ease,
+    box-shadow .4s ease;
+}
+
+/* BASE GLOW LAYER */
+.social-container::before{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  opacity:0;
+
+  transition:opacity .35s ease;
+
+  pointer-events:none;
+
+  background:
+    radial-gradient(circle at center,
+    rgba(255,255,255,.15),
+    transparent 70%);
+}
+
+/* PATREON */
+.social-container:has(a[href*="patreon"]:hover){
+  background:rgba(255,66,77,.08);
+  box-shadow:0 0 80px rgba(255, 255, 255, 0.12);
+}
+
+/* SUBSCRIBESTAR */
+.social-container:has(a[href*="subscribestar"]:hover){
+  background:rgba(34,197,94,.10);
+  box-shadow:0 0 80px rgba(34,197,94,.14);
+}
+
+/* ITCH */
+.social-container:has(a[href*="itch"]:hover){
+  background:rgba(220,38,38,.10);
+  box-shadow:0 0 80px rgba(220,38,38,.15);
+}
+
+/* KOFI */
+.social-container:has(a[href*="ko-fi"]:hover){
+  background:rgba(114,165,242,.10);
+  box-shadow:0 0 80px rgba(114,165,242,.15);
+}
+
+/* PAYPAL */
+.social-container:has(a[href*="paypal"]:hover){
+  background:rgba(37,59,128,.12);
+  box-shadow:0 0 80px rgba(37,59,128,.16);
+}
+
+/* Slight button polish */
+.social-container a{
+  position:relative;
+  z-index:2;
+
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    color .25s ease,
+    border-color .25s ease;
+}
+
+.social-container a:hover{
+  transform:translateY(-2px) scale(1.03);
+}
 </style>
+
   <link rel="icon" type="image/png" href="favicon.ico">
 </head>
 <body class="relative min-h-screen overflow-hidden bg-[#1a1a1a] text-white">
@@ -74,25 +154,25 @@ h1, h2 {
           </div>
           <p class="text-lg uppercase tracking-[0.35em] text-white selection:bg-red-500/30">Gore Games</p>
           <h1 class="mt-6 text-4xl font-semibold tracking-tight text-white bg-black/30 rounded-md px-4 py-2 selection:bg-red-500/30 border border-red-500/40">AVN Developer of 7 games</h1>
-          <p class="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-300 font-bold selection:bg-red-500/30">Welcome to my page, you can see my work below & see my links.</p>
-          <p class="mx-auto mt-1 max-w-xl text-sm leading-6 text-slate-400 selection:bg-red-500/30">Co-Developer and Lead Admin for Blackheart Games</p>
+          <p class="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-300 font-bold selection:bg-red-500/30 font-sans">Welcome to my page, you can see my work below & see my links.</p>
+          <p class="mx-auto mt-1 max-w-xl text-sm leading-6 text-slate-400 selection:bg-red-500/30">Co-Developer and Lead Admin for LightningEnteractive.</p>
 
           <div class="mt-10 grid gap-5 w-full max-w-sm mx-auto">
             <button id="view-work-button" class="rounded-xl bg-red-500/40 px-6 py-3 text-lg font-semibold text-white ring-10 ring-white/10 transition hover:bg-black/65 hover:scale-105 shadow-[0_0_3px_rgba(0,0,0,0.3)]">View work</button>
           </div>
 
-          <div class="mt-12 flex flex-wrap justify-center gap-3 text-md font-bold text-slate-400 bg-black/20 rounded-md px-4 py-6 border border-white/10 selection:bg-red-500/30">
-            <a href="https://www.patreon.com/goregames" class="transition hover:text-black bg-black/30 rounded-md px-4 py-2 border border-white/10 hover:bg-white/70 hover:scale-105" target="_blank" rel="noreferrer noopener"><i class="fab fa-patreon"></i> Patreon</a>
-            <a href="https://subscribestar.com/goregames" class="inline-flex items-center gap-2 text-slate-400 transition hover:text-white bg-black/30 rounded-md px-4 py-2 border border-white/10 hover:bg-green-500/30 hover:filter-none hover:scale-105" target="_blank" rel="noreferrer noopener">
+          <div class="social-container mt-12 inline-flex flex-wrap justify-center gap-3 text-md font-bold text-slate-400 bg-black/20 rounded-md px-4 py-6 border border-white/10 selection:bg-red-500/30">
+            <a href="https://www.patreon.com/goregames" class="transition hover:text-black bg-black/80 rounded-md px-4 py-2 border border-white/10 hover:bg-white/95 hover:scale-105" target="_blank" rel="noreferrer noopener"><i class="fab fa-patreon"></i> Patreon</a>
+            <a href="https://subscribestar.com/goregames" class="inline-flex items-center gap-2 text-slate-400 transition hover:text-white bg-black/80 rounded-md px-4 py-2 border border-white/10 hover:bg-green-500/30 hover:filter-none hover:scale-105" target="_blank" rel="noreferrer noopener">
               <img src="ss_logomark.png" alt="SubscribeStar" class="inline-flex h-4 w-4 rounded opacity-90 filter grayscale" />
               SubscribeStar
             </a>
-            <a href="https://gore-games.itch.io/" class="transition hover:text-white bg-black/30 rounded-md px-4 py-2 border border-white/10 hover:bg-red-600/50 hover:scale-105" target="_blank" rel="noreferrer noopener"><i class="fab fa-itch-io"></i> Itch.io</a>
-            <a href="https://ko-fi.com/missgore" class="transition hover:text-white bg-black/30 rounded-md px-4 py-2 border border-white/10 hover:bg-[#72A5F2] hover:scale-105" target="_blank" rel="noreferrer noopener">
+            <a href="https://gore-games.itch.io/" class="transition hover:text-white bg-black/80 rounded-md px-4 py-2 border border-white/10 hover:bg-red-600/50 hover:scale-105" target="_blank" rel="noreferrer noopener"><i class="fab fa-itch-io"></i> Itch.io</a>
+            <a href="https://ko-fi.com/missgore" class="transition hover:text-white bg-black/80 rounded-md px-4 py-2 border border-white/10 hover:bg-[#72A5F2] hover:scale-105" target="_blank" rel="noreferrer noopener">
               <img src="kofi_symbol.png" alt="Ko-fi" class="inline-flex h-4 w-5 rounded opacity-90 filter grayscale" />
               Ko-fi
             </a>
-            <a href="https://paypal.me/MissGore562" class="transition hover:text-white bg-black/30 rounded-md px-4 py-2 border border-white/10 hover:bg-[#253B80] hover:scale-105" target="_blank" rel="noreferrer noopener"><i class="fab fa-paypal"></i> PayPal</a>
+            <a href="https://paypal.me/MissGore562" class="transition hover:text-white bg-black/80 rounded-md px-4 py-2 border border-white/10 hover:bg-[#253B80] hover:scale-105" target="_blank" rel="noreferrer noopener"><i class="fab fa-paypal"></i> PayPal</a>
           </div>
         </div>
 
@@ -172,7 +252,6 @@ h1, h2 {
     const backButton = document.getElementById('back-button');
     viewButton.addEventListener('click', () => flipCard.classList.add('flipped'));
     backButton.addEventListener('click', () => flipCard.classList.remove('flipped'));
-
   </script>
 </body>
 </html>
