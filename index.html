@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gore Games</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Stack+Sans+Headline:wght@200..700&display=swap');
+h1, h2 {
+  font-family: 'Stack Sans Headline', sans-serif;
+}
+.flip-card {
+  transform-style: preserve-3d;
+  transition: transform 0.75s ease;
+}
+.flip-card.flipped {
+  transform: rotateY(180deg);
+}
+.flip-side {
+  backface-visibility: hidden;
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.flip-card .flip-back {
+  opacity: 0;
+  visibility: hidden;
+}
+.scrollbar-theme {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148,163,184,.7) rgba(15,23,42,.6);
+}
+.scrollbar-theme::-webkit-scrollbar {
+  width: 8px;
+}
+.scrollbar-theme::-webkit-scrollbar-track {
+  background: rgba(15,23,42,.4);
+  border-radius: 9999px;
+}
+.scrollbar-theme::-webkit-scrollbar-thumb {
+  background: rgba(148,163,184,.55);
+  border-radius: 9999px;
+}
+.flip-card.flipped .flip-side:not(.flip-back) {
+  opacity: 0;
+  visibility: hidden;
+}
+.flip-card.flipped .flip-back {
+  opacity: 1;
+  visibility: visible;
+}
+.flip-back {
+  transform: rotateY(180deg);
+}
+</style>
+  <link rel="icon" type="image/png" href="favicon.ico">
+</head>
+<body class="relative min-h-screen overflow-hidden bg-[#1a1a1a] text-white">
+  <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,0,0,0.25),_transparent_78%),radial-gradient(circle_at_bottom_right,_rgba(191,0,0,0.18),_transparent_60%)]"></div>
+  <div class="pointer-events-none absolute left-1/2 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-white/10 blur-3xl" aria-hidden="true"></div>
+
+  <main class="relative mx-auto flex min-h-screen max-w-3xl items-center justify-center px-6 py-12">
+    <div class="w-full rounded-[2rem] border border-white/10 bg-white/0 px-8 py-12 text-center backdrop-blur-2xl shadow-[0_30px_120px_rgba(0,0,0,0.35)]">
+      <div id="flip-card" class="flip-card relative w-full min-h-[42rem]">
+        <div class="flip-side rounded-[2rem] border border-white/10 bg-white/0 px-8 py-12 text-center shadow-[0_30px_120px_rgba(0,0,0,0.65)]">
+          <div class="mx-auto mb-8 h-32 w-32 rounded-full border border-white/15 bg-slate-900/70 shadow-inner shadow-black/30 selection:bg-red-500/30">
+            <img src="favicon.ico" alt="Gore Games Avatar" class="h-full w-full rounded-full object-cover" />
+          </div>
+          <p class="text-lg uppercase tracking-[0.35em] text-white selection:bg-red-500/30">Gore Games</p>
+          <h1 class="mt-6 text-4xl font-semibold tracking-tight text-white bg-black/30 rounded-md px-4 py-2 selection:bg-red-500/30">AVN Developer of 7 games</h1>
+          <p class="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-300">Welcome to my page, you can see my work below & see my links.</p>
+
+          <div class="mt-10 grid gap-4">
+            <button id="view-work-button" class="rounded-xl bg-red-500/10 border border-white/10 px-6 py-4 text-sm font-semibold text-white ring-1 ring-white/10 transition hover:bg-red-500/25">View work</button>
+          </div>
+
+          <div class="mt-10 flex flex-wrap justify-center gap-4 text-sm text-slate-400 bg-black/40 rounded-md px-4 py-2">
+            <a href="https://www.patreon.com/goregames" class="transition hover:text-white" target="_blank" rel="noreferrer noopener"><i class="fab fa-patreon"></i> Patreon</a>|
+            <a href="https://subscribestar.com/goregames" class="inline-flex items-center gap-2 text-slate-400 transition hover:text-white" target="_blank" rel="noreferrer noopener">
+              <img src="ss_logomark.png" alt="SubscribeStar" class="inline-flex h-4 w-4 rounded opacity-90 filter grayscale" />
+              SubscribeStar
+            </a>|
+            <a href="https://gore-games.itch.io/" class="transition hover:text-white" target="_blank" rel="noreferrer noopener"><i class="fab fa-itch-io"></i> Itch.io</a>|
+            <a href="https://ko-fi.com/missgore" class="transition hover:text-white" target="_blank" rel="noreferrer noopener">
+              <img src="kofi_symbol.png" alt="Ko-fi" class="inline-flex h-4 w-4 rounded opacity-90 filter grayscale" />
+              Ko-fi
+            </a>|
+            <a href="https://paypal.me/MissGore562" class="transition hover:text-white" target="_blank" rel="noreferrer noopener"><i class="fab fa-paypal"></i> PayPal</a>
+          </div>
+        </div>
+
+        <div class="flip-side flip-back rounded-[2rem] border border-white/10 bg-[#0f1015]/90 px-8 py-12 text-left text-slate-200">
+          <button id="back-button" class="mb-6 inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white transition hover:bg-white/10">Back</button>
+          <h2 class="text-3xl font-semibold text-white">My Work</h2>
+          <div class="mt-8 max-h-[26rem] space-y-4 overflow-y-auto pr-2 scrollbar-theme">
+            <div class="rounded-3xl bg-red-500/20 p-5">
+              <p class="text-sm uppercase tracking-[0.3em] text-white">Rayne's Reign</p>
+              <p class="mt-2 text-base text-slate-200">Femdom, short story, easy to play.</p>
+              <p class="mt-1 text-sm text-slate-400">Release date: November 24, 2023 | Final update: July 30, 2024</p>
+            </div>
+            <div class="rounded-3xl bg-gradient-to-r from-blue-500/30 to-pink-500/30 p-5">
+              <p class="text-sm uppercase tracking-[0.3em] text-white">Daddy's Angel</p>
+              <p class="mt-2 text-base text-slate-200">A school-esque narrative with not-so-subtle themes.</p>
+              <p class="mt-1 text-sm text-slate-400">Release date: May 18, 2024 | Final update: TBD</p>
+            </div>
+            <div class="rounded-3xl bg-gradient-to-r from-red-500/30 to-black-500/50 p-5">
+              <p class="text-sm uppercase tracking-[0.3em] text-white">Rayne's Reign: The Beginning</p>
+              <p class="mt-2 text-base text-slate-200">Prequel to the original game: Rayne's Reign.</p>
+              <p class="mt-1 text-sm text-slate-400">Release date: September 13, 2024 | Final update: December 12, 2024</p>
+            </div>
+            <div class="rounded-3xl bg-gradient-to-r from-gray-500/30 to-gray-500/30 p-5">
+              <p class="text-sm uppercase tracking-[0.3em] text-white">Unbroken Lines</p>
+              <p class="mt-2 text-base text-slate-200">A WW2-themed narrative with not so much content.</p>
+              <p class="mt-1 text-sm text-slate-400">Release date: October 23, 2024 | Final update: TBD</p>
+            </div>
+            <div class="rounded-3xl bg-gradient-to-r from-green-500/30 to-red-500/30 p-5">
+              <p class="text-sm uppercase tracking-[0.3em] text-white">Alyssa's Ascension</p>
+              <p class="mt-2 text-base text-slate-200">A sequel to Rayne's Reign.</p>
+              <p class="mt-1 text-sm text-slate-400">Release date: February 13, 2025 | Final update: TBD</p>
+            </div>
+            <div class="rounded-3xl bg-gradient-to-r from-yellow-500/30 to-orange-500/30 p-5">
+              <p class="text-sm uppercase tracking-[0.3em] text-white">Pharaoh's Veil</p>
+              <p class="mt-2 text-base text-slate-200">Desert Stalker inspired game set in ancient times.</p>
+              <p class="mt-1 text-sm text-slate-400">Release date: April 17, 2025 | On hold</p>
+            </div>
+            <div class="rounded-3xl bg-gradient-to-r from-pink-500/30 to-blue-500/30 p-5">
+              <p class="text-sm uppercase tracking-[0.3em] text-white">Daddy's Angel: Remastered</p>
+              <p class="mt-2 text-base text-slate-200">A failed remaster of Daddy's Angel.</p>
+              <p class="mt-1 text-sm text-slate-400">Release date: May 17, 2025 | Cancelled</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="mt-8 text-center text-xs text-white/50">&copy; 2026 Gore Games. All rights reserved.</footer>
+    </div>
+  </main>
+  <script>
+    const flipCard = document.getElementById('flip-card');
+    const viewButton = document.getElementById('view-work-button');
+    const backButton = document.getElementById('back-button');
+    viewButton.addEventListener('click', () => flipCard.classList.add('flipped'));
+    backButton.addEventListener('click', () => flipCard.classList.remove('flipped'));
+  </script>
+</body>
+</html>
