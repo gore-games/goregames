@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gore Games — Changelog</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Stack+Sans+Headline:wght@200..700&display=swap');
+    h1, h2, h3 {
+      font-family: 'Stack Sans Headline', sans-serif;
+    }
+    .scrollbar-theme {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(148,163,184,.7) rgba(15,23,42,.6);
+    }
+    .scrollbar-theme::-webkit-scrollbar {
+      width: 8px;
+    }
+    .scrollbar-theme::-webkit-scrollbar-track {
+      background: rgba(15,23,42,.4);
+      border-radius: 9999px;
+    }
+    .scrollbar-theme::-webkit-scrollbar-thumb {
+      background: rgba(148,163,184,.55);
+      border-radius: 9999px;
+    }
+    .card {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(16px);
+    }
+  </style>
+  <link rel="icon" type="image/png" href="images/favicon.ico">
+</head>
+<body class="relative min-h-screen overflow-hidden bg-[#111111] text-white">
+  <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,0,0,0.18),_transparent_60%),radial-gradient(circle_at_bottom_right,_rgba(255,255,255,0.06),_transparent_65%)]"></div>
+  <main class="relative mx-auto max-w-5xl overflow-hidden px-6 py-12">
+    <div class="relative max-h-[calc(95vh-4rem)] overflow-y-auto rounded-[2rem] border border-white/10 bg-white/5 px-8 py-12 shadow-[0_30px_120px_rgba(0,0,0,0.35)] backdrop-blur-2xl scrollbar-theme">
+      <div class="relative">
+        <a href="index.html" class="absolute left-6 top-6 inline-flex items-center justify-center rounded-full bg-red-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-black hover:scale-105"><i class="fas fa-arrow-left mr-2"></i> Back to Home</a>
+        <div class="text-center">
+          <p class="text-sm uppercase tracking-[0.35em] text-slate-400">Gore Games</p>
+          <h1 class="mt-4 text-5xl font-semibold tracking-tight text-white">Changelog</h1>
+          <p class="mx-auto mt-4 max-w-2xl text-base leading-8 text-slate-300">A fast view of the latest site updates, design tweaks, and new content added to the homepage.</p>
+        </div>
+      </div>
+
+      <div class="mt-10 flex flex-col gap-6">
+        <section class="card rounded-[2rem] p-8">
+          <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div>
+              <h2 class="text-2xl font-semibold text-white">May 24, 2026</h2>
+              <p class="text-sm text-slate-400">Latest site refresh and changelog page added.</p>
+            </div>
+            <span class="inline-flex rounded-full bg-red-500/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-red-200">Current</span>
+          </div>
+          <ul class="mt-6 space-y-3 text-slate-200 text-sm leading-7">
+            <li><strong>New page:</strong> Added <code class="bg-black/20 rounded-md px-2 py-1 border border-white/10">Changelog</code> for tracking site updates.</li>
+          </ul>
+        </section>
+
+        <section class="card rounded-[2rem] p-8">
+          <h3 class="text-xl font-semibold text-white">Recent updates</h3>
+          <div class="mt-6 grid gap-4 lg:grid-cols-2">
+            <article class="rounded-3xl border border-white/10 p-6 bg-slate-900/50">
+              <p class="text-sm uppercase tracking-[0.28em] text-slate-400">May 20, 2026</p>
+              <h4 class="mt-3 text-lg font-semibold text-white">Website Published</h4>
+              <p class="mt-2 text-slate-300">Published the website.</p>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <footer class="mt-10 text-center text-xs text-white/50">&copy; 2026 Gore Games. All rights reserved.</footer>
+    </div>
+  </main>
+</body>
+</html>
